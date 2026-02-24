@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnIT – Online IT Courses</title>
+    <style>
+    
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;  
+            color: #d1d5db;
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        
+        header {
+            background-color: #000000;
+            padding: 16px 5%;
+            box-shadow: 0 1px 3px rgba(255,255,255,0.05); /* subtle white shadow */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        header > nav {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header > nav > a:first-child {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff; 
+        }
+
+        
+        header > nav > a:first-child > span {
+            color: #ef4444; 
+        }
+
+        header > nav > ul {
+            display: flex;
+            gap: 32px;
+            margin-left: auto; 
+            margin-right: 32px;
+        }
+
+        header > nav > ul > li > a {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7); 
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        header > nav > ul > li > a:hover {
+            color: #ef4444;  
+        }
+
+        header > nav > a:last-child {
+            background-color: #ef4444; 
+            color: #ffffff; 
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background-color 0.2s;
+        }
+        
+        header > nav > a:last-child:hover {
+            background-color: #dc2626;  
+        }
+
+         
+        main > section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        main > section > span:first-child {
+            color: #ef4444;  
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        main > section > h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 48px;
+            color: #ffffff;  
+            font-weight: 800;
+        }
+
+        main > section:nth-of-type(even) {
+            background-color: #121212;  
+            max-width: 100%;
+        }
+        
+        main > section:nth-of-type(even) > div {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+       
+        main > section:first-of-type {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            padding-top: 96px;
+            padding-bottom: 160px; 
+            position: relative;
+        }
+
+        main > section:first-of-type > div:first-child > span {
+            background-color: #450a0a;  
+            color: #fca5a5;  
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        main > section:first-of-type > div:first-child > h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        
+        main > section:first-of-type > div:first-child > h1 > span {
+            color: #ef4444; 
+        }
+
+        main > section:first-of-type > div:first-child > p {
+            font-size: 18px;
+            color: #9ca3af;
+            margin-bottom: 32px;
+        }
+
+        main > section:first-of-type > div:first-child > div {
+            display: flex;
+            gap: 16px;
+        }
+
+        main > section:first-of-type > div:first-child > div > a {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        main > section:first-of-type > div:first-child > div > a:first-child {
+            background-color: #ef4444; 
+            color: #ffffff;
+        }
+
+        main > section:first-of-type > div:first-child > div > a:last-child {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid #ef4444;  
+            transition: background-color 0.2s;
+        }
+        
+        main > section:first-of-type > div:first-child > div > a:last-child:hover {
+            background-color: #ef4444;
+        }
+
+        main > section:first-of-type > ul {
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            right: 5%;
+            background-color: #1e1e1e;  
+            border: 1px solid #374151;
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transform: translateY(50%);
+            z-index: 10;
+        }
+
+        main > section:first-of-type > ul > li {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        main > section:first-of-type > ul > li > h3 {
+            font-size: 36px;
+            color: #ef4444;  
+        }
+
+         
+        .courses-section {
+            padding-top: 128px !important; 
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .course-card {
+            background-color: #1e1e1e;  
+            border: 1px solid #374151;  
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px); 
+            border-color: #ef4444;  
+            box-shadow: 0 12px 24px rgba(239, 68, 68, 0.15); 
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 0; 
+            border-bottom: 1px solid #374151;
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; 
+        }
+
+        .category-badge {
+            color: #ef4444;  
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.05em;
+        }
+
+        .course-title {
+            font-size: 20px;
+            color: #ffffff; 
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        .course-desc {
+            color: #9ca3af;
+            font-size: 14px;
+            margin-bottom: 24px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+        }
+
+        .course-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff; 
+        }
+
+        .enroll-btn {
+            background-color: #ef4444; 
+            color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        .enroll-btn:hover {
+            background-color: #dc2626;
+        }
+
+       
+        main > section:nth-of-type(3) > div {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        main > section:nth-of-type(3) article {
+            background-color: #1e1e1e;  
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        main > section:nth-of-type(3) article > span {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        
+        main > section:nth-of-type(4) > div > div {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 24px;
+            text-align: center;
+        }
+
+        main > section:nth-of-type(4) article {
+            background-color: #1e1e1e;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            padding: 40px 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        main > section:nth-of-type(4) article:hover {
+            transform: translateY(-5px);
+            border-color: #ef4444;
+        }
+
+        main > section:nth-of-type(4) article > img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            border: 3px solid #ef4444; /* Red ring */
+            padding: 4px; 
+        }
+
+        main > section:nth-of-type(4) article > h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        main > section:nth-of-type(4) article > p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+         
+        main > section:nth-of-type(5) {
+            background-color: #121212;  
+            max-width: 100%;
+            border-top: 1px solid #1e1e1e;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        main > section:nth-of-type(5) > h2 {
+            color: #ffffff; 
+        }
+
+        main > section:nth-of-type(5) > span:first-child {
+            color: #ef4444; 
+        }
+
+        main > section:nth-of-type(5) > div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        main > section:nth-of-type(5) article {
+            background-color: #1e1e1e; 
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        }
+
+        main > section:nth-of-type(5) article > span {
+            color: #ef4444; 
+            font-size: 20px;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        main > section:nth-of-type(5) article > blockquote {
+            font-style: italic;
+            color: #d1d5db;
+            margin-bottom: 32px;
+        }
+
+        main > section:nth-of-type(5) article > div {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        main > section:nth-of-type(5) article > div > img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        main > section:nth-of-type(5) article > div > div > strong {
+            color: #ffffff;
+            display: block;
+        }
+
+        main > section:nth-of-type(5) article > div > div > p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+         
+        main > section:nth-of-type(6) {
+            background-color: #ef4444;  
+            max-width: 100%;
+            text-align: center;
+        }
+
+        main > section:nth-of-type(6) > h2 {
+            color: #ffffff;
+        }
+
+        main > section:nth-of-type(6) > p {
+            color: #fee2e2; 
+            font-size: 20px;
+            margin-bottom: 32px;
+        }
+
+        main > section:nth-of-type(6) > a {
+            background-color: #000000; 
+            color: #ffffff;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+
+        main > section:nth-of-type(6) > a:hover {
+            background-color: #1e1e1e; 
+        }
+
+         
+        footer {
+            background-color: #000000;  
+            color: #9ca3af;
+            padding: 64px 5% 32px;
+            border-top: 1px solid #1e1e1e;
+        }
+
+        footer > div {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+        }
+
+        footer > div > div:first-child > a {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 16px;
+        }
+ 
+        footer > div > div:first-child > a > span {
+            color: #ef4444;
+        }
+
+        footer > div > div > h4 {
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+        
+        footer > div > div > ul > li > a:hover {
+            color: #ef4444;
+        }
+
+        footer > div > div > ul > li {
+            margin-bottom: 12px;
+        }
+
+        footer > p {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid #1e1e1e;
+        }
+
+       
+       
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="#">Learn<span>IT</span></a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#instructors">Instructors</a></li>
+        </ul>
+        <a href="#">Sign Up Free</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <div>
+            <span>🎓 10,000+ Students Enrolled</span>
+            <h1>Learn<span>IT</span> Skills & Build Your Career</h1>
+            <p>Expert-led online courses in Web Development, Data Science, Cybersecurity, Cloud, and more. Learn at your own pace, get certified, and land your dream job.</p>
+            <div>
+                <a href="#courses">Browse Courses</a>
+                <a href="#">Watch Demo</a>
+            </div>
+        </div>
+        <figure>
+            <img src="https://s44783.pcdn.co/in/wp-content/uploads/sites/3/2022/10/Technical-Skills_How-to-Them-Master-in-2022.jpg.optimal.jpg" alt="Students Learning">
+        </figure>
+        <ul>
+            <li>
+                <h3>10K+</h3>
+                <p>Students Enrolled</p>
+            </li>
+            <li>
+                <h3>50+</h3>
+                <p>Expert Courses</p>
+            </li>
+            <li>
+                <h3>95%</h3>
+                <p>Job Placement Rate</p>
+            </li>
+            <li>
+                <h3>4.8 ⭐</h3>
+                <p>Average Rating</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="courses" class="courses-section">
+        <div>
+            <span class="section-subtitle">What We Offer</span>
+            <h2 class="section-title">Popular IT Courses</h2>
+            
+            <div class="courses-grid">
+                <article class="course-card">
+                    <img src="https://miro.medium.com/v2/resize:fit:1200/0*cl7fc6pt1MHjIF4K.png" alt="Web Dev" class="card-img">
+                    <div class="card-body">
+                        <span class="category-badge">Web Dev</span>
+                        <h3 class="course-title">Full Stack Web Development</h3>
+                        <p class="course-desc">HTML, CSS, JS, React, Node.js. Build real-world projects from scratch.</p>
+                        <div class="card-footer">
+                            <span class="course-price">₹4,999</span>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <img src="https://eeakolkata.com/wp-content/uploads/2023/10/python-Data-Science-Libraries-With-Implementation.webp" alt="Data Science" class="card-img">
+                    <div class="card-body">
+                        <span class="category-badge">Data Science</span>
+                        <h3 class="course-title">Python & Data Science</h3>
+                        <p class="course-desc">Python, Pandas, NumPy, Machine Learning, and data visualization.</p>
+                        <div class="card-footer">
+                            <span class="course-price">₹5,499</span>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <img src="https://bis-dev.com/wp-content/uploads/2024/11/Cyber-Security.jpeg" alt="Cybersecurity" class="card-img">
+                    <div class="card-body">
+                        <span class="category-badge">Security</span>
+                        <h3 class="course-title">Cybersecurity Fundamentals</h3>
+                        <p class="course-desc">Network security, ethical hacking, and data protection basics.</p>
+                        <div class="card-footer">
+                            <span class="course-price">₹6,999</span>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsrd1DCmZViVrOsfKonfOPjsfQXQfozYklNw&s" alt="UI UX" class="card-img">
+                    <div class="card-body">
+                        <span class="category-badge">Design</span>
+                        <h3 class="course-title">UI/UX Design with Figma</h3>
+                        <p class="course-desc">Design stunning interfaces and user experiences from ground up.</p>
+                        <div class="card-footer">
+                            <span class="course-price">₹3,999</span>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <img src="https://www.encodedots.com/blog/wp-content/uploads/2025/02/AWS-Cloud-Computing-1.png" alt="Cloud" class="card-img">
+                    <div class="card-body">
+                        <span class="category-badge">Cloud</span>
+                        <h3 class="course-title">AWS Cloud Computing</h3>
+                        <p class="course-desc">Get AWS certified. Deploy scalable, reliable cloud applications.</p>
+                        <div class="card-footer">
+                            <span class="course-price">₹7,499</span>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <img src="https://img.freepik.com/free-vector/app-development-banner_33099-1720.jpg?semt=ais_user_personalization&w=740&q=80" alt="Android" class="card-img">
+                    <div class="card-body">
+                        <span class="category-badge">Mobile</span>
+                        <h3 class="course-title">Android App Development</h3>
+                        <p class="course-desc">Build and publish Android apps using Java and Android Studio.</p>
+                        <div class="card-footer">
+                            <span class="course-price">₹5,999</span>
+                            <a href="#" class="enroll-btn">Enroll Now</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="why">
+        <span>Why Choose Us</span>
+        <h2>Why 10,000+ Students Pick LearnIT</h2>
+        <div>
+            <article>
+                <span>🎓</span>
+                <h3>Expert Instructors</h3>
+                <p>Learn from industry professionals with years of real-world experience.</p>
+            </article>
+            <article>
+                <span>📱</span>
+                <h3>Learn Anywhere</h3>
+                <p>Access all courses on mobile, tablet, or desktop — anytime you want.</p>
+            </article>
+            <article>
+                <span>📜</span>
+                <h3>Get Certified</h3>
+                <p>Earn industry-recognized certificates after completing each course.</p>
+            </article>
+            <article>
+                <span>💬</span>
+                <h3>24/7 Support</h3>
+                <p>Our support team is always ready to help you whenever you need it.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="instructors">
+        <div>
+            <span>The Experts</span>
+            <h2>Meet Our Top Instructors</h2>
+            <div>
+                <article>
+                    <img src="https://picsum.photos/100/100?random=311" alt="Instructor">
+                    <h3>Rahul Sharma</h3>
+                    <p>Full Stack Developer</p>
+                </article>
+                <article>
+                    <img src="https://picsum.photos/100/100?random=312" alt="Instructor">
+                    <h3>Priya Nair</h3>
+                    <p>Data Scientist</p>
+                </article>
+                <article>
+                    <img src="https://picsum.photos/100/100?random=313" alt="Instructor">
+                    <h3>Arjun Mehta</h3>
+                    <p>Cybersecurity Expert</p>
+                </article>
+                <article>
+                    <img src="https://picsum.photos/100/100?random=314" alt="Instructor">
+                    <h3>Sneha Patel</h3>
+                    <p>UI/UX Designer</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <span>Student Success</span>
+        <h2>What Our Students Say</h2>
+        <div>
+            <article>
+                <span>★★★★★</span>
+                <blockquote>"Completed the Full Stack course and landed a job within 2 months! The content is very practical and easy to follow."</blockquote>
+                <div>
+                    <img src="https://picsum.photos/50/50?random=321" alt="Student">
+                    <div>
+                        <strong>Deepak Verma</strong>
+                        <p>Web Developer at TCS</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <span>★★★★★</span>
+                <blockquote>"The Data Science course was excellent. Instructor explains everything so clearly. Got placed at Infosys after this!"</blockquote>
+                <div>
+                    <img src="https://picsum.photos/50/50?random=322" alt="Student">
+                    <div>
+                        <strong>Nisha Joshi</strong>
+                        <p>Data Analyst at Infosys</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <span>★★★★★</span>
+                <blockquote>"Best investment I made. The UI/UX course helped me become a freelancer. Now I earn double what I used to!"</blockquote>
+                <div>
+                    <img src="https://picsum.photos/50/50?random=323" alt="Student">
+                    <div>
+                        <strong>Karan Patel</strong>
+                        <p>Freelance Designer</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Ready to Start Your IT Career?</h2>
+        <p>Join 10,000+ students and take the first step toward your dream job today.</p>
+        <a href="#">Start Learning for Free →</a>
+    </section>
+</main>
+
+<footer>
+    <div>
+        <div>
+            <a href="#">Learn<span>IT</span></a>
+            <p>Empowering students with the latest IT skills to build successful careers in the digital world.</p>
+        </div>
+        <div>
+            <h4>Courses</h4>
+            <ul>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Data Science</a></li>
+                <li><a href="#">Cybersecurity</a></li>
+                <li><a href="#">Cloud Computing</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Help Center</a></li>
+            </ul>
+        </div>
+    </div>
+    <p>© 2026 LearnIT. All rights reserved.</p>
+</footer>
+
+</body>   
+</html>
